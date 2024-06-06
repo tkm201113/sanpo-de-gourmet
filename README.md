@@ -103,3 +103,34 @@ AWS S3を使って写真を保存し、RailsのActive Storageで管理する
 
 【リアルタイム混雑情報】
 外部API（例えば、Google Places API）を使って、お店のリアルタイム混雑
+
+■ 使用予定の技術スタック
+【フロントエンド】
+JavaScript (ES6+)
+React: インタラクティブなUI構築
+Redux: 状態管理
+Tailwind CSS: スタイリング
+Mapbox GL JS: インタラクティブなマップ表示
+axios: API通信
+
+【バックエンド】
+Rubyバージョン: 3.1.4
+Railsバージョン: 7.1.3.2
+
+【Gem】
+geocoder: 現在地の取得や住所検索に使用
+devise: ユーザー認証機能
+pundit: 権限管理
+active_storage: ユーザーレビューや写真の保存
+aws-sdk-s3: Active StorageでAWS S3を使用するため
+httparty: 外部API（Google Maps APIやGoogle Places API）との通信
+
+【デプロイ】
+Heroku: 初期デプロイおよびスケーリング
+AWS (S3): 画像やファイルのストレージ
+CircleCI: CI/CDパイプラインの自動化
+
+【その他の技術・サービス】
+Google Maps API - 現在地取得と周辺のお店情報の表示
+Google Places API - お店の詳細情報とリアルタイム混雑情報の取得
+Algolia - 高速な検索機能
