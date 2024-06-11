@@ -137,3 +137,6 @@ Algolia - 高速な検索機能
 
 ■ 画面遷移図
 Figma：https://www.figma.com/design/mLwJ4qoCb21wHBN8k2LhVx/Untitled?node-id=0-1&t=MKsRD7FmkZ8x2Snf-1
+
+■ ER図
+https://drive.google.com/file/d/1u7k9t_j7JAG-9BpOpydCp5kfabWn0aGV/view?usp=sharing
