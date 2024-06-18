@@ -134,3 +134,6 @@ CircleCI: CI/CDパイプラインの自動化
 Google Maps API - 現在地取得と周辺のお店情報の表示
 Google Places API - お店の詳細情報とリアルタイム混雑情報の取得
 Algolia - 高速な検索機能
+
+■ 画面遷移図
+Figma：https://www.figma.com/design/mLwJ4qoCb21wHBN8k2LhVx/Untitled?node-id=0-1&t=MKsRD7FmkZ8x2Snf-1
