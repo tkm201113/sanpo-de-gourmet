@@ -1,15 +1,63 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  background: #ffcc99;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: absolute;
+  /* レスポンシブ対応のため、marginを削除 */
+  margin-left: 50%;
+  font-size: 25px;
+}
+
+.button-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap; /* ボタンが画面幅に収まるようにする */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #FFE8D1;
+}
+
+/* レスポンシブデザインのためのメディアクエリ */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column; /* 画面幅が狭いときは縦に並べる */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%; /* 小さい画面ではコンテナの幅を狭くする */
+  }
+
+  button {
+    width: 100%; /* ボタンを画面幅いっぱいに */
+    padding: 10px 0; /* パディングを調整 */
+  }
+
+  h1 {
+    font-size: 24px; /* 見出しのサイズを調整 */
+  }
+}
