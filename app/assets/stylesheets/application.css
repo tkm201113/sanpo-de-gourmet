@@ -3,13 +3,14 @@ body {
   height: 100vh;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* 修正点 */
   text-align: center;
   position: relative;
 }
 
-.container {
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,14 +19,14 @@ body {
   text-align: center; /* テキストの中央揃え */
   padding: 20px;
   font-size: 25px;
+  font-size: 25px;
   margin-left: 50%;
 }
 
 .button-container {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap; /* ボタンが画面幅に収まるようにする */
-  justify-content: center; /* ボタンを中央揃え */
+  flex-wrap: wrap;
 }
 
 button {
@@ -41,24 +42,79 @@ button:hover {
   background-color: #FFE8D1;
 }
 
-/* レスポンシブデザインのためのメディアクエリ */
 @media (max-width: 768px) {
   .button-container {
-    flex-direction: column; /* 画面幅が狭いときは縦に並べる */
+    flex-direction: column;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    width: 90%; /* 小さい画面ではコンテナの幅を狭くする */
+  .main-container {
+    width: 90%;
   }
 
   button {
-    width: 100%; /* ボタンを画面幅いっぱいに */
-    padding: 10px 0; /* パディングを調整 */
+    width: 100%;
+    padding: 10px 0;
   }
 
   h1 {
-    font-size: 24px; /* 見出しのサイズを調整 */
+    font-size: 24px;
   }
+}
+
+/* ヘッダー作成 */
+.site-header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #555;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-icon-bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 2px 0;
 }
