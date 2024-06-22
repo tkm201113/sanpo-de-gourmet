@@ -76,21 +76,6 @@
 ・リアルタイム混雑情報
 
 ■ 機能の実装方針予定 
-【指定時間内で行けるお店検索機能】 Google Maps APIを利用して現在地を取得し、指定した時間内で歩いて行ける範囲を計算する
-
-【リアルタイムの位置情報連動】 同じくGoogle Maps APIを使って、周辺のお店情報を表示する
-
-【ユーザーレビューと写真の投稿機能】 AWS S3を使って写真を保存し、RailsのActive Storageで管理する
-
-【リアルタイム混雑情報】 外部API（例えば、Google Places API）を使って、お店のリアルタイム混雑
-
-■ 使用予定の技術スタック 
-フロントエンド: React.js, Leaflet.js (地図表示)
-バックエンド: Ruby on Rails
-データベース: PostgreSQL
-ホスティング: Heroku, AWS (写真保存)
-API: Geolocation API, OpenStreetMap, OpenRouteService, Yelp API, Foursquare API
-
 1. 現在地周辺のお店表示
 位置情報: -Geolocation API** ブラウザのGeolocation APIを使ってユーザーの現在地を取得する。
 OpenStreetMap: 無料で使える地図データベース。Leaflet.jsと組み合わせて地図表示を行う。
@@ -122,3 +107,10 @@ Share API: ブラウザの共有機能を利用してソーシャルメディア
 8. リアルタイム混雑情報
 混雑情報:
 Foursquare API: お店の混雑状況を取得するためのAPI。
+
+■ 使用予定の技術スタック 
+フロントエンド: React.js, Leaflet.js (地図表示)
+バックエンド: Ruby on Rails
+データベース: PostgreSQL
+ホスティング: Heroku, AWS (写真保存)
+API: Geolocation API, OpenStreetMap, OpenRouteService, Yelp API, Foursquare API
