@@ -1,18 +1,28 @@
-<header class="site-header">
-  <div class="header-container">
-    <%= link_to root_path, class: 'logo' do %>
-      <h1>散歩 de グルメ</h1>
-    <% end %>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="<%=  %>">ログイン</a></li>
-        <li><a href="<%=  %>">新規登録</a></li>
-      </ul>
-    </nav>
-    <div class="menu-icon">
-      <span class="menu-icon-bar"></span>
-      <span class="menu-icon-bar"></span>
-      <span class="menu-icon-bar"></span>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <div class="content">
+  </div>  
+  <header class="site-header">
+    <div class="header-container">
+      <%= link_to root_path, class: 'logo' do %>
+        <h1>散歩 de グルメ</h1>
+      <% end %>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="<%=  %>">ログイン</a></li>
+          <li><a href="<%=  %>">新規登録</a></li>
+        </ul>
+      </nav>
+      <div class="menu-icon">
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</body>
+</html>
