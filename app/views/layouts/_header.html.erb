@@ -1,10 +1,12 @@
 <header class="site-header">
   <div class="header-container">
-    <h1 class="logo">散歩 de グルメ</h1>
+    <%= link_to root_path, class: 'logo' do %>
+      <h1>散歩 de グルメ</h1>
+    <% end %>
     <nav class="main-nav">
       <ul>
-        <li><a href="<%= new_user_session_path %>">ログイン</a></li>
-        <li><a href="<%= new_user_registration_path %>">新規登録</a></li>
+        <li><a href="<%=  %>">ログイン</a></li>
+        <li><a href="<%=  %>">新規登録</a></li>
       </ul>
     </nav>
     <div class="menu-icon">
