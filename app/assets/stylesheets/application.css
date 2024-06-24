@@ -65,8 +65,8 @@ button:hover {
 
 /* ヘッダー作成 */
 .site-header {
-  background-color: #333;
-  color: white;
+  background-color: #fff;
+  color: #000;
   padding: 10px 0;
   width: 100%;
   position: fixed;
@@ -77,33 +77,47 @@ button:hover {
 
 .header-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* 右寄せ */
   align-items: center;
   padding: 0 20px;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 10px;
+  margin-right: auto; /* ロゴを左寄せ */
+  text-decoration: none;
+  color: inherit; /* 親要素の色を継承 */
+}
+
+/* リンクの各状態を指定 */
+.logo:link,
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color: inherit; /* 親要素の色を継承 */
+  text-decoration: none;
 }
 
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 10px;
+  margin-right: 40px; /* 隙間を開ける */
 }
 
 .main-nav a {
-  color: white;
+  color: #000;
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .main-nav a:hover {
-  background-color: #555;
+  text-decoration: underline;
+  text-decoration-color: #000;
 }
 
 .menu-icon {
@@ -111,10 +125,10 @@ button:hover {
   flex-direction: column;
   cursor: pointer;
 }
-
+  
 .menu-icon-bar {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: #000;
   margin: 2px 0;
 }
