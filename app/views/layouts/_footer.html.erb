@@ -1,7 +1,19 @@
-<footer>
-  <ul class="footer-links">
-    <li><%= link_to 'お問い合わせ' %></li>
-    <li><%= link_to '利用規約' %></li>
-    <li><%= link_to 'プライバシーポリシー' %></li>
-  </ul>
-</footer>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>固定フッターの例</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <div class="content">
+    <!-- 他のコンテンツ -->
+  </div>
+  <footer>
+    <ul class="footer-links">
+      <li><%= link_to 'お問い合わせ', '#' %></li>
+      <li><%= link_to '利用規約', '#' %></li>
+      <li><%= link_to 'プライバシーポリシー', '#' %></li>
+    </ul>
+  </footer>
+</body>
+</html>
