@@ -132,3 +132,28 @@ button:hover {
   background-color: #000;
   margin: 2px 0;
 }
+
+/* フッダー作成 */
+footer {
+  background-color: white;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.footer-links {
+  list-style-type: none;
+  margin: 0;
+  margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: black;
+  text-decoration: none;
+}
