@@ -191,7 +191,7 @@ footer {
 .btn-primary {
   padding: 12px 100px;
   background-color: #82AD24;
-  color: white;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -202,4 +202,57 @@ footer {
 
 .btn-primary:hover {
   opacity: 0.8;
+}
+
+/* ログイン */
+.login-form {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #82AD24;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  text-align: right;
+}
+
+.form-btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }

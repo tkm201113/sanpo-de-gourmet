@@ -1,0 +1,18 @@
+<div class="login-form">
+  <h2>ログイン</h2>
+  <%= form_with url: login_path, local: true do |form| %>
+    <div class="form-group">
+      <%= form.email_field :email, class: 'form-control', placeholder: 'メールアドレス' %>
+    </div>
+    <div class="form-group">
+      <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
+    </div>
+    <div class="form-group">
+      <%= link_to 'パスワードを忘れた方はこちら', '#', class: 'forgot-password' %>
+    </div>
+    <div class="form-btn-group">
+      <%= link_to 'ログイン', home_path ,class: 'btn btn-primary' %>
+      <%= link_to '新規登録画面へ', signup_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
