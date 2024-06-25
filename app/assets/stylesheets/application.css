@@ -31,15 +31,16 @@ body {
 
 button {
   padding: 20px 30px;
-  background-color: white;
+  background-color: #fff;
   cursor: pointer;
   font-size: 18px;
   border-radius: 15px;
   font-weight: bold;
+  transition: all 0.3s;
 }
 
 button:hover {
-  background-color: #FFE8D1;
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {
@@ -171,6 +172,10 @@ footer {
   max-width: 400px;
 }
 
+.registration-form h2 {
+  margin-bottom: auto;
+}
+
 .form-group {
   margin-bottom: 12px;
   text-align: left;
@@ -185,11 +190,16 @@ footer {
 
 .btn-primary {
   padding: 12px 100px;
-  background-color: #4169E1;
+  background-color: #82AD24;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-size: 15px;
   margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
 }
