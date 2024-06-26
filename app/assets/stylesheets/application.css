@@ -191,7 +191,7 @@ footer {
 .btn-primary {
   padding: 12px 100px;
   background-color: #82AD24;
-  color: white;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -202,4 +202,69 @@ footer {
 
 .btn-primary:hover {
   opacity: 0.8;
+}
+
+/* ログイン */
+.login-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.login-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.login-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.forgot-password {
+  display: block;
+  margin-bottom: 20px;
+  color: #0B57D0;
+  text-decoration: none;
+  text-align: right;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.login-btn-primary, .login-btn-secondary {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.login-btn-primary:hover, .login-btn-secondary:hover {
+  opacity: 0.8;
+}
+
+.login-btn-primary {
+  background-color: #82AD24;
+  color: #fff;
+}
+
+.login-btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
 }
