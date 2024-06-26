@@ -205,54 +205,66 @@ footer {
 }
 
 /* ログイン */
-.login-form {
+.login-container {
   text-align: center;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: auto;
   padding: 50px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.login-form {
+  display: flex;
+  margin-bottom: 20px;
 }
 
-.form-control {
+.login-control {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
 }
 
-.btn-primary, .btn-secondary {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btn-primary {
-  background-color: #82AD24;
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: #fff;
-}
-
 .forgot-password {
   display: block;
-  margin-top: 10px;
-  color: #007BFF;
+  margin-bottom: 20px;
+  color: #0B57D0;
   text-decoration: none;
   text-align: right;
 }
 
-.form-btn-group {
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  gap: 20px;
+}
+
+.login-btn-primary, .login-btn-secondary {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.login-btn-primary:hover, .login-btn-secondary:hover {
+  opacity: 0.8;
+}
+
+.login-btn-primary {
+  background-color: #82AD24;
+  color: #fff;
+}
+
+.login-btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
 }
