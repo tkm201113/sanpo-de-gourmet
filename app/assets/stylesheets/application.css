@@ -268,3 +268,48 @@ footer {
   background-color: #6c757d;
   color: #fff;
 }
+
+/* 検索条件 */
+.sessions-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.sessions-form {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.sessions-control {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.sessions-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.sessions-btn-primary {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s;
+  background-color: #82AD24;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.sessions-btn-primary:hover {
+  opacity: 0.8;
+}

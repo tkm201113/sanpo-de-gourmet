@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/new'
+  get 'search/create'
   devise_for :users
   get "up" => "rails/health#show", as: :rails_health_check
 
@@ -12,4 +14,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'home', to: 'home#index'
+
+  get 'search', to: 'search#new'
+  post 'search', to: 'search#create'
 end
