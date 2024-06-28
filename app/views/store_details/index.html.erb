@@ -1,0 +1,15 @@
+<button class="button" onclick="history.back()">←</button>
+<div class="section">
+  <h2><%= @store_name %></h2>
+  <p>徒歩 : <%= @walking_time %></p>
+  <p>営業状況 : <%= @business_status %></p>
+  <p>営業時間 : <%= @business_hours %></p>
+  <p>混雑状況 : <%= @waiting_time %></p>
+  <p>電話番号 : <%= @phone_number %></p>
+  <button class="button">このお店に行く</button>
+
+  <div class="divider"></div>
+
+  <input type="text" class="input-underline" placeholder="レビューを書く">
+  <button class="store_details-button">レビューを書く</button>
+</div>

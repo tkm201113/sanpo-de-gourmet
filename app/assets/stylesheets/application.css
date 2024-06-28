@@ -313,3 +313,31 @@ footer {
 .sessions-btn-primary:hover {
   opacity: 0.8;
 }
+
+/* 店舗詳細 */
+.section {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.divider {
+  border-bottom: 1px solid black;
+  margin: 20px 0;
+}
+.input-underline {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.store_details-button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
