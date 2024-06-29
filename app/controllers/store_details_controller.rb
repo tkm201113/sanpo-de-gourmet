@@ -6,9 +6,10 @@ class StoreDetailsController < ApplicationController
     @business_hours = "○○:○○ ～ ○○:○○"
     @waiting_time = "○○分待ち"
     @phone_number = "○○-○○-○○"
+    @user_name = "○○"
+    @review_text = "○○"
   end
 
   def review
-    # レビューの処理をここに書く
   end
 end
