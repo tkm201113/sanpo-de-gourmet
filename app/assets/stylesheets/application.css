@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 修正点 */
+  justify-content: center;
   text-align: center;
   position: relative;
 }
@@ -15,8 +15,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* ビューポート全体の高さを確保 */
-  text-align: center; /* テキストの中央揃え */
+  height: 100vh;
+  text-align: center;
   padding: 20px;
   font-size: 25px;
   font-size: 25px;
@@ -78,7 +78,7 @@ button:hover {
 
 .header-container {
   display: flex;
-  justify-content: flex-end; /* 右寄せ */
+  justify-content: flex-end;
   align-items: center;
   padding: 0 20px;
   max-width: 1800px;
@@ -87,16 +87,16 @@ button:hover {
 
 .logo {
   font-size: 10px;
-  margin-right: auto; /* ロゴを左寄せ */
+  margin-right: auto;
   text-decoration: none;
-  color: inherit; /* 親要素の色を継承 */
+  color: inherit;
 }
 
 .logo:link,
 .logo:visited,
 .logo:hover,
 .logo:active {
-  color: inherit; /* 親要素の色を継承 */
+  color: inherit;
   text-decoration: none;
 }
 
@@ -104,7 +104,7 @@ button:hover {
   list-style: none;
   display: flex;
   gap: 10px;
-  margin-right: 40px; /* 隙間を開ける */
+  margin-right: 40px;
 }
 
 .main-nav a {
@@ -312,4 +312,71 @@ footer {
 
 .sessions-btn-primary:hover {
   opacity: 0.8;
+}
+
+/* 店舗詳細 */
+.container {
+  display: flex;
+  align-items: flex-start;
+  width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.store-details-back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.store-details-section {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+.store-details-section h2 {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.store-details-section p {
+  text-align: left;
+}
+
+.store-details-text {
+  margin-left: 40px;
+}
+
+.store-details-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  margin: 20px 0;
+}
+
+.store-details-second-section {
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffcc99;
+  width: 70%;
+}
+
+.review-text {
+  border-bottom: 1px solid black;
 }
