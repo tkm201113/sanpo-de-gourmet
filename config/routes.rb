@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'maps/index'
+  get 'maps/search'
   get 'search/new'
   get 'search/create'
 
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'home', to: 'home#index'
+
+  get 'search', to: 'maps#search', as: 'search_maps'
 
   get 'search', to: 'search#new'
   post 'search', to: 'search#create'
