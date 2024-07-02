@@ -1,5 +1,5 @@
-pin "application", preload: true
-pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
-pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
-pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
-pin_all_from "app/javascript/controllers", under: "controllers"
+pin "react", to: "https://ga.jspm.io/npm:react@18.3.1/index.js"
+pin "react-dom", to: "https://ga.jspm.io/npm:react-dom@18.3.1/index.js"
+pin "@reduxjs/toolkit", to: "https://ga.jspm.io/npm:@reduxjs/toolkit@1.7.1/dist/redux-toolkit.umd.js"
+pin "react-redux", to: "https://ga.jspm.io/npm:react-redux@7.2.6/dist/react-redux.umd.js"
+pin "tailwindcss", to: "https://cdn.skypack.dev/tailwindcss"

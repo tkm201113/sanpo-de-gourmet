@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from '../components/HelloWorld';
-import './geolocation';
-import './map';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from '../components/App';
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <HelloWorld />,
-    document.body.appendChild(document.createElement('div')),
-  );
-});
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
