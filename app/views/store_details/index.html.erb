@@ -1,4 +1,4 @@
-<div class="container">
+<div data-controller="review-form" class="store-details-container">
   <button class="store-details-back-btn">←</button>
   <div class="store-details-section">
     <h2><%= @store_name %></h2>
@@ -9,14 +9,50 @@
       <p>混雑状況 : <%= @waiting_time %></p>
       <p>電話番号 : <%= @phone_number %></p>
     </div>
-      <button class="store-details-btn">このお店に行く</button>
+    <button class="store-details-btn">このお店に行く</button>
 
     <div class="divider"></div>
 
     <div class="store-details-second-section">
       <p>ユーザー名: <%= @user_name %></p>
       <p class="review-text">テキスト: <%= @review_text %></p>
-      <button class="store-details-btn">レビューを書く</button>
+      <button class="store-details-btn" data-action="click->review-form#open">レビューを書く</button>
     </div>
+  </div>
+</div>
+
+<div id="review-form" class="review-form" data-review-form-target="form">
+  <div class="review-form-content">
+    <p>名前: <%= @user_name %></p>
+    <p>レビュー:</p>
+    <textarea></textarea>
+    <p>サービス:</p>
+    <select>
+      <option>5. とても良い</option>
+      <option>4. 良い</option>
+      <option>3. 普通</option>
+      <option>2. あまり良くない</option>
+      <option>1. 良くない</option>
+    </select>
+    <p>価格:</p>
+    <select>
+      <option>5. とても良い</option>
+      <option>4. 良い</option>
+      <option>3. 普通</option>
+      <option>2. あまり良くない</option>
+      <option>1. 良くない</option>
+    </select>
+    <p>雰囲気:</p>
+    <select>
+      <option>5. とても良い</option>
+      <option>4. 良い</option>
+      <option>3. 普通</option>
+      <option>2. あまり良くない</option>
+      <option>1. 良くない</option>
+    </select>
+    <p>画像:</p>
+    <input type="file">
+    <button data-action="click->review-form#close">閉じる</button>
+    <button>投稿する</button>
   </div>
 </div>
