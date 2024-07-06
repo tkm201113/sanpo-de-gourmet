@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nearby Restaurants</title>
+  <style>
+    #map {
+      margin-top: 10vh;
+      margin-bottom: 2vh;
+    }
+    #restaurants {
+      background-color: white;
+      border: 1px solid black;
+      padding: 10px;
+      height: 30vh;
+      overflow-y: auto;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      border-radius: 8px;
+      box-sizing: border-box;
+      width: 60%;
+    }
+    .card {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      #map, #restaurants {
+        width: 90%;
+        height: 40vh;
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ページのレスポンシブ対応 -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9Be4_3dwav-hf9Xqsob1S0sBcgEUBUY&libraries=places,geometry&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var currentLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: currentLocation
+          });
+
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch({
+            location: currentLocation,
+            radius: 500,
+            type: ['restaurant']
+          }, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              var restaurantsContainer = document.getElementById('restaurants');
+              restaurantsContainer.innerHTML = '<h2>検索結果</h2>'; // 検索結果のテキストを追加
+              results.forEach(function(place) {
+                var card = document.createElement('div');
+                card.classList.add('card');
+
+                // Fetch additional details for each place
+                service.getDetails({ placeId: place.place_id }, function(placeDetails, status) {
+                  if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var openingHoursText = placeDetails.opening_hours ? placeDetails.opening_hours.weekday_text.join('<br>') : '不明';
+                    card.innerHTML = `
+                      <h3>${placeDetails.name}</h3>
+                      <p>${placeDetails.formatted_address}</p>
+                      <p>徒歩${calculateWalkingTime(currentLocation, placeDetails.geometry.location)}分</p>
+                      <p>${placeDetails.opening_hours && placeDetails.opening_hours.isOpen() ? '営業中' : '休業中'}</p>
+                      <p>営業時間: ${openingHoursText}</p>
+                      <p>混雑状況: ${placeDetails.waiting_time ? placeDetails.waiting_time : '不明'}分待ち</p>
+                      <p>電話番号: ${placeDetails.formatted_phone_number || '不明'}</p>
+                    `;
+                    card.addEventListener('click', function() {
+                      window.location.href = placeDetails.url; // 店舗詳細ページに遷移
+                    });
+                    restaurantsContainer.appendChild(card);
+                  }
+                });
+              });
+            } else {
+              console.error('PlacesServiceStatus Error:', status);
+            }
+          });
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function calculateWalkingTime(start, end) {
+      var distance = google.maps.geometry.spherical.computeDistanceBetween(start, end);
+      var walkingSpeedMetersPerMinute = 80;
+      return Math.round(distance / walkingSpeedMetersPerMinute);
+    }
+  </script>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="restaurants"></div>
+</body>
+</html>

@@ -104,6 +104,7 @@
   <div id="map"></div>
 
   <div id="restaurant-list-container">
+    <h2>検索結果</h2>
     <div id="restaurant-list">
       <% @restaurants.each do |restaurant| %>
         <div class="restaurant-item" onclick="window.location.href='/restaurants/<%= restaurant[:id] %>';">
