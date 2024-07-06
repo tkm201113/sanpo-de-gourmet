@@ -3,37 +3,80 @@
 <head>
   <title>Nearby Restaurants</title>
   <style>
-    #map {
+    .container {
+      width: 100%; /* コンテナの幅を設定 */
       margin-top: 10vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 中央揃え */
+    }
+    #map, #restaurants {
+      width: 60%; /* コンテナ内での幅を100%に設定 */
+      height: 30vh; /* 高さを固定 */
+      border: 1px solid black;
+      border-radius: 8px;
+      box-sizing: border-box;
       margin-bottom: 2vh;
     }
     #restaurants {
       background-color: white;
-      border: 1px solid black;
-      padding: 10px;
-      height: 30vh;
       overflow-y: auto;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
-      border-radius: 8px;
-      box-sizing: border-box;
-      width: 60%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 中央揃え */
     }
     .card {
+      background-color: #FFCC99;
+      width: 80%;
       border: 1px solid black;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       cursor: pointer;
       border-radius: 8px;
+      display: flex;
+      align-items: flex-start; /* 上寄せ */
     }
-    @media (max-width: 768px) {
-      #map, #restaurants {
-        width: 90%;
-        height: 40vh;
-      }
+    .card h3 {
+      font-size: 1.2em; /* 店舗名のフォントサイズを変更 */
+      text-decoration: underline; /* 下線を追加 */
+      margin-bottom: 10px;
+      margin-right: 10px; /* 画像との間隔を設定 */
+      height: 100%; /* カードの高さいっぱいに設定 */
+      text-align: left; /* 文字を左寄せ */
+    }
+    .card img {
+      flex: 1; /* 画像の幅を自動調整 */
+      max-width: 30%; /* 画像の最大幅を設定 */
+      height: auto; /* 高さを自動調整 */
+      border-radius: 8px; /* 画像の角を丸くする */
+      margin: 15px;
+    }
+    .card-content {
+      flex: 2; /* カード内容の幅を自動調整 */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* コンテンツを均等に配置 */
+    }
+    .card-content ul {
+      list-style-type: none;
+      padding: 0;
+      font-size: 0.9em; /* テキストサイズを変更 */
+      text-align: left; /* テキストを左寄せ */
+    }
+    .card-content ul li {
+      margin: 5px 0;
+      position: relative; /* 相対位置に変更 */
+      padding-left: 15px; /* 左側にスペースを追加 */
+    }
+    .card-content ul li::before {
+      content: '•'; /* 黒点を追加 */
+      position: absolute; /* 絶対位置 */
+      left: 0; /* 左端に配置 */
+      color: black; /* 黒色に設定 */
     }
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ページのレスポンシブ対応 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9Be4_3dwav-hf9Xqsob1S0sBcgEUBUY&libraries=places,geometry&callback=initMap" async defer></script>
   <script>
     function initMap() {
@@ -66,14 +109,20 @@
                 service.getDetails({ placeId: place.place_id }, function(placeDetails, status) {
                   if (status === google.maps.places.PlacesServiceStatus.OK) {
                     var openingHoursText = placeDetails.opening_hours ? placeDetails.opening_hours.weekday_text.join('<br>') : '不明';
+                    var image = placeDetails.photos ? placeDetails.photos[0].getUrl() : '';
                     card.innerHTML = `
-                      <h3>${placeDetails.name}</h3>
-                      <p>${placeDetails.formatted_address}</p>
-                      <p>徒歩${calculateWalkingTime(currentLocation, placeDetails.geometry.location)}分</p>
-                      <p>${placeDetails.opening_hours && placeDetails.opening_hours.isOpen() ? '営業中' : '休業中'}</p>
-                      <p>営業時間: ${openingHoursText}</p>
-                      <p>混雑状況: ${placeDetails.waiting_time ? placeDetails.waiting_time : '不明'}分待ち</p>
-                      <p>電話番号: ${placeDetails.formatted_phone_number || '不明'}</p>
+                      <img src="${image}" alt="${placeDetails.name}">
+                      <div class="card-content">
+                        <h3>${placeDetails.name}</h3>
+                        <ul>
+                          <li>住所: ${placeDetails.formatted_address}</li>
+                          <li>電話番号: ${placeDetails.formatted_phone_number || '不明'}</li>
+                          <li>徒歩: ${calculateWalkingTime(currentLocation, placeDetails.geometry.location)}分</li>
+                          <li>営業状況: ${placeDetails.opening_hours && placeDetails.opening_hours.isOpen() ? '営業中' : '休業中'}</li>
+                          <li>営業時間: ${openingHoursText}</li>
+                          <li>混雑状況: ${placeDetails.waiting_time ? placeDetails.waiting_time : '不明'}分待ち</li>
+                        </ul>
+                      </div>
                     `;
                     card.addEventListener('click', function() {
                       window.location.href = placeDetails.url; // 店舗詳細ページに遷移
@@ -100,7 +149,9 @@
   </script>
 </head>
 <body>
-  <div id="map"></div>
-  <div id="restaurants"></div>
+  <div class="container">
+    <div id="map"></div>
+    <div id="restaurants"></div>
+  </div>
 </body>
 </html>
