@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9Be4_3dwav-hf9Xqsob1S0sBcgEUBUY&libraries=places,marker&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places,marker&callback=initMap" async defer></script>
   <script>
     function initMap() {
       if (navigator.geolocation) {
