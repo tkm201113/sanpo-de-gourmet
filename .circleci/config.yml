@@ -1,32 +1,19 @@
 version: 2.1
-
-executors:
-  ruby-executor:
-    docker:
-      - image: circleci/ruby:3.1.4-node
-    working_directory: ~/my-app
-
 jobs:
-  test:
-    executor: ruby-executor
+  build:
+    docker:
+      - image: circleci/ruby:3.1.4
+      - image: circleci/node:14
     steps:
       - checkout
       - run:
-          name: Install Dependencies
+          name: Install Node.js
           command: |
-            gem install bundler
-            bundle install --path vendor/bundle
+            curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+            sudo apt-get install -y nodejs
       - run:
-          name: Database Setup
-          command: |
-            bundle exec rails db:create
-            bundle exec rails db:schema:load
+          name: Bundle Install
+          command: bundle install
       - run:
           name: Run Tests
-          command: bundle exec rails test
-
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
+          command: bundle exec rspec
