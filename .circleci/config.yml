@@ -1,0 +1,32 @@
+version: 2.1
+
+executors:
+  ruby-executor:
+    docker:
+      - image: circleci/ruby:3.1.4-node
+    working_directory: ~/my-app
+
+jobs:
+  test:
+    executor: ruby-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: |
+            gem install bundler
+            bundle install --path vendor/bundle
+      - run:
+          name: Database Setup
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:schema:load
+      - run:
+          name: Run Tests
+          command: bundle exec rails test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
