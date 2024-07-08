@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'search', to: 'search#new'
   post 'search', to: 'search#create'
 
+  get 'maps', to: 'maps#index'
+
   get 'store_details/index'
   post 'store_details/review'
 end

@@ -65,6 +65,7 @@ gem 'httparty'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -78,6 +79,9 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem 'listen', '~> 3.3'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
@@ -85,3 +89,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'sass-rails', '>= 6'
+gem 'webpacker', '~> 5.0'
+gem 'turbolinks', '~> 5'
+
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+gem "dotenv-rails", "~> 3.1"
