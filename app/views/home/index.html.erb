@@ -77,7 +77,7 @@
     }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX9Be4_3dwav-hf9Xqsob1S0sBcgEUBUY&libraries=places,geometry&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places,geometry&callback=initMap" async defer></script>
   <script>
     function initMap() {
       if (navigator.geolocation) {
