@@ -2,6 +2,7 @@
 <html>
 <head>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
 </head>
 <body>
   <div class="content">
@@ -13,15 +14,23 @@
       <% end %>
       <nav class="main-nav">
         <ul>
-          <li><a href="<%=  %>">ログイン</a></li>
-          <li><a href="<%=  %>">新規登録</a></li>
+          <li><a href="<%= new_user_session_path %>">ログイン</a></li>
+          <li><a href="<%= new_user_registration_path %>">新規登録</a></li>
         </ul>
       </nav>
-      <div class="menu-icon">
+      <div class="menu-icon" onclick="toggleMenu()">
         <span class="menu-icon-bar"></span>
         <span class="menu-icon-bar"></span>
         <span class="menu-icon-bar"></span>
       </div>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="close-icon" onclick="toggleMenu()">×</div>
+      <ul>
+        <li><%= link_to 'マイページ', root_path, class: 'menu-link' %></li>
+        <li><%= link_to 'お店を探す', root_path, class: 'menu-link' %></li>
+        <li><%= link_to 'みんなと話す', root_path, class: 'menu-link' %></li>
+      </ul>
     </div>
   </header>
 </body>
