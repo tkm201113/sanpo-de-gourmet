@@ -12,7 +12,7 @@
     }
     #map, #restaurants {
       width: 60%; /* コンテナ内での幅を100%に設定 */
-      height: 30vh; /* 高さを固定 */
+      height: 20vh; /* 高さを小さく設定 */
       border: 1px solid black;
       border-radius: 8px;
       box-sizing: border-box;
@@ -77,7 +77,7 @@
     }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places,geometry&callback=initMap" async defer></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places,geometry&callback=initMap"></script>
   <script>
     function initMap() {
       if (navigator.geolocation) {
@@ -95,13 +95,21 @@
           var service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: currentLocation,
-            radius: 500,
+            radius: 1000,
             type: ['restaurant']
           }, function(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               var restaurantsContainer = document.getElementById('restaurants');
               restaurantsContainer.innerHTML = '<h2>検索結果</h2>'; // 検索結果のテキストを追加
+
               results.forEach(function(place) {
+                // マーカーを地図に追加
+                var marker = new google.maps.Marker({
+                  position: place.geometry.location,
+                  map: map,
+                  title: place.name
+                });
+
                 var card = document.createElement('div');
                 card.classList.add('card');
 
