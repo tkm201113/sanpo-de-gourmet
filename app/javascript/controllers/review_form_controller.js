@@ -1,15 +1,15 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["form"]
+  static targets = ["overlay", "form"];
 
-  open(event) {
-    event.preventDefault()
-    this.formTarget.style.display = "flex"
+  open() {
+    this.overlayTarget.classList.add("active");
+    this.formTarget.classList.add("active");
   }
 
-  close(event) {
-    event.preventDefault()
-    this.formTarget.style.display = "none"
+  close() {
+    this.overlayTarget.classList.remove("active");
+    this.formTarget.classList.remove("active");
   }
 }
