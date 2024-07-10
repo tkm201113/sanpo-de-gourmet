@@ -401,7 +401,7 @@ footer {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  z-index: 1000; /* ヘッダーとフォームの上に表示されるようにz-indexを設定 */
 }
 
 .overlay.active {
@@ -415,12 +415,63 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 20px;
-  z-index: 20;
+  padding: 30px; /* フォームの枠を大きくする */
+  border-radius: 8px;
+  z-index: 1001; /* オーバーレイの上に表示されるようにz-indexを設定 */
+  width: 600px; /* フォームの幅を大きくする */
 }
 
 .review-form.active {
   display: block;
+}
+
+.review-form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form-content .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-form-content label {
+  flex: 0 0 100px;
+}
+
+.review-form-content textarea,
+.review-form-content select,
+.review-form-content input[type="file"],
+.review-form-content input[type="text"] {
+  flex: 1;
+}
+
+.stars {
+  display: flex;
+}
+
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  color: #FFFFFF; /* 通常の星の色を白にする */
+  -webkit-text-stroke: 1px black; /* 星の周りを黒枠にする */
+  margin-right: 5px;
+  transition: color 0.3s;
+}
+
+.star:hover,
+.star.selected,
+.star.highlighted {
+  color: #FBBC04; /* 星の色を「#FBBC04」にする */
+}
+
+.review-form-content .form-group:last-child {
+  justify-content: flex-end; /* ボタンを右側に配置 */
+}
+
+.review-form-content button {
+  margin-left: 10px;
 }
 
 /* ハンバーガーメニュー */

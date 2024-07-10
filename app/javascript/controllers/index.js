@@ -1,8 +1,6 @@
-import { Application } from "@hotwired/stimulus";
-import { definitionsFromContext } from "@hotwired/stimulus-loading";
-import ReviewFormController from "./review_form_controller";
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 
-window.Stimulus = Application.start();
-const context = require.context("controllers", true, /\.js$/);
-Stimulus.load(definitionsFromContext(context));
-Stimulus.register("review-form", ReviewFormController);
+const application = Application.start()
+const context = require.context("controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
