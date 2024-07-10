@@ -60,6 +60,8 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'active_storage_validations'
+
 gem 'httparty'
 
 group :development, :test do
