@@ -1,9 +1,14 @@
 version: 2.1
 
-jobs:
-  build:
+executors:
+  ruby-executor:
     docker:
-      - image: cimg/ruby:3.1.4
+      - image: cimg/ruby:3.1.4-node
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: ruby-executor
     steps:
       - checkout
       - run:
@@ -12,3 +17,9 @@ jobs:
       - run:
           name: Run tests
           command: bundle exec rspec
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test

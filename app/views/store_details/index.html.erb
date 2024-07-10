@@ -19,40 +19,65 @@
       <button class="store-details-btn" data-action="click->review-form#open">レビューを書く</button>
     </div>
   </div>
-</div>
 
-<div id="review-form" class="review-form" data-review-form-target="form">
-  <div class="review-form-content">
-    <p>名前: <%= @user_name %></p>
-    <p>レビュー:</p>
-    <textarea></textarea>
-    <p>サービス:</p>
-    <select>
-      <option>5. とても良い</option>
-      <option>4. 良い</option>
-      <option>3. 普通</option>
-      <option>2. あまり良くない</option>
-      <option>1. 良くない</option>
-    </select>
-    <p>価格:</p>
-    <select>
-      <option>5. とても良い</option>
-      <option>4. 良い</option>
-      <option>3. 普通</option>
-      <option>2. あまり良くない</option>
-      <option>1. 良くない</option>
-    </select>
-    <p>雰囲気:</p>
-    <select>
-      <option>5. とても良い</option>
-      <option>4. 良い</option>
-      <option>3. 普通</option>
-      <option>2. あまり良くない</option>
-      <option>1. 良くない</option>
-    </select>
-    <p>画像:</p>
-    <input type="file">
-    <button data-action="click->review-form#close">閉じる</button>
-    <button>投稿する</button>
+  <div class="overlay" data-review-form-target="overlay" data-action="click->review-form#close"></div>
+
+  <div id="review-form" class="review-form" data-review-form-target="form">
+    <div class="review-form-content">
+      <div class="form-group">
+        <label for="name">名前:</label>
+        <input type="text" id="name">
+      </div>
+      <div class="form-group">
+        <label for="rating">評価:</label>
+        <div class="stars">
+          <% (1..5).each do |i| %>
+            <span class="star" data-value="<%= i %>">&#9733;</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="review">レビュー:</label>
+        <textarea id="review"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="service">サービス:</label>
+        <select id="service">
+          <option>5. とても良い</option>
+          <option>4. 良い</option>
+          <option>3. 普通</option>
+          <option>2. あまり良くない</option>
+          <option>1. 良くない</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">価格:</label>
+        <select id="price">
+          <option>5. とても良い</option>
+          <option>4. 良い</option>
+          <option>3. 普通</option>
+          <option>2. あまり良くない</option>
+          <option>1. 良くない</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="atmosphere">雰囲気:</label>
+        <select id="atmosphere">
+          <option>5. とても良い</option>
+          <option>4. 良い</option>
+          <option>3. 普通</option>
+          <option>2. あまり良くない</option>
+          <option>1. 良くない</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="image">画像:</label>
+        <input type="file" id="image">
+      </div>
+      <div class="form-group">
+        <button data-action="click->review-form#close">閉じる</button>
+        <button>投稿する</button>
+      </div>
+    </div>
   </div>
 </div>
