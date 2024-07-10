@@ -3,7 +3,7 @@ version: 2.1
 executors:
   ruby-executor:
     docker:
-      - image: circleci/ruby:3.1.4
+      - image: cimg/ruby:3.1.4-node
     working_directory: ~/repo
 
 jobs:
@@ -11,11 +11,6 @@ jobs:
     executor: ruby-executor
     steps:
       - checkout
-      - run:
-          name: Install Node.js
-          command: |
-            curl -sL https://deb.nodesource.com/setup_16.x | bash -
-            sudo apt-get install -y nodejs
       - run:
           name: Install dependencies
           command: bundle install
