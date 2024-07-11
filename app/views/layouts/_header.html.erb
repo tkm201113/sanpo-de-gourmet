@@ -3,6 +3,37 @@
 <head>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <style>
+    .menu-icon {
+      cursor: pointer;
+      display: inline-block;
+    }
+    .menu-icon-bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background-color: #333;
+    }
+    .hamburger-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 200px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .hamburger-menu.open {
+      display: block;
+    }
+    .close-icon {
+      cursor: pointer;
+      font-size: 20px;
+      padding: 10px;
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
   <div class="content">
@@ -33,5 +64,12 @@
       </ul>
     </div>
   </header>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('hamburger-menu');
+      menu.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
