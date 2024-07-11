@@ -1,13 +1,8 @@
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-const application = Application.start()
-
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus = application
-
-const context = require.context("controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
-
-export { application }
+function toggleMenu() {
+  var menu = document.getElementById('hamburger-menu');
+  if (menu.style.display === 'none' || menu.style.display === '') {
+    menu.style.display = 'block';
+  } else {
+    menu.style.display = 'none';
+  }
+}
