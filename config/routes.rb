@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'home', to: 'home#index'
 
+  get 'mypage', to: 'mypage#index'
+
   get 'search', to: 'search#new'
   post 'search', to: 'search#create'
 

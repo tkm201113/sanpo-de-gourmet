@@ -473,3 +473,66 @@ footer {
 .review-form-content button {
   margin-left: 10px;
 }
+
+/* マイページ */
+.mypage {
+  width: 60%;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+}
+
+.underline {
+  border: 1px solid black;
+}
+
+.review-list {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  background-attachment: #FFCC99;
+}
+
+.review-item {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.review-image {
+  width: 80px;
+  height: 80px;
+}
+
+.review-content {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.review-summary {
+  text-align: right;
+  margin-left: auto;
+}
+
+.review-actions {
+  text-align: right;
+}
+
+.review-actions button {
+  font-size: 14px;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+}
