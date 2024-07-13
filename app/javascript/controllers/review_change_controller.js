@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["overlay", "form"];
+  static targets = ["overlay", "form", "deleteConfirm"];
 
   connect() {
     this.stars = this.formTarget.querySelectorAll('.star');
@@ -40,6 +40,12 @@ export default class extends Controller {
     if (event.target === this.overlayTarget || event.currentTarget.tagName === "BUTTON") {
       this.overlayTarget.classList.remove("active");
       this.formTarget.classList.remove("active");
+      this.deleteConfirmTarget.classList.remove("active");
     }
+  }
+
+  confirmDelete() {
+    this.overlayTarget.classList.add("active");
+    this.deleteConfirmTarget.classList.add("active");
   }
 }
