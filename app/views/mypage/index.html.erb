@@ -25,7 +25,7 @@
 
     <div class="review-actions">
       <button data-action="click->review-change#open">編集</button>
-      <button class="delete-button">削除</button>
+      <button class="delete-button" data-action="click->review-change#confirmDelete">削除</button>
     </div>
   </div>
 
@@ -56,6 +56,16 @@
       <div class="form-group">
         <button data-action="click->review-change#close">閉じる</button>
         <button>投稿する</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="delete-confirm" class="review-form" data-review-change-target="deleteConfirm">
+    <div class="review-form-content">
+      <p>このレビューを削除しますか？</p>
+      <div class="review-actions">
+        <button data-action="click->review-change#close">キャンセル</button>
+        <button class="delete-button">削除する</button>
       </div>
     </div>
   </div>
