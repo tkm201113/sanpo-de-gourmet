@@ -204,6 +204,12 @@ footer {
   opacity: 0.8;
 }
 
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.25em;
+}
+
 /* ログイン */
 .login-container {
   text-align: center;
