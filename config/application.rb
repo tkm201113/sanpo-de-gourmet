@@ -11,5 +11,7 @@ module SanpoDeGourmet
     Dotenv::Rails.load if defined?(Dotenv)
 
     config.autoload_lib(ignore: %w(assets tasks))
+
+    config.i18n.default_locale = :ja
   end
 end

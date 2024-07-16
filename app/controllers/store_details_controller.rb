@@ -1,4 +1,5 @@
 class StoreDetailsController < ApplicationController
+
   def index
     @store_name = "○○"
     @walking_time = "○○分"

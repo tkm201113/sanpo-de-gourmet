@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        blank: "を入力してください"
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+              taken: "このメールアドレスはすでに使用されています"
+            password:
+              blank: "パスワードを入力してください"
+              too_short: "パスワードは6文字以上で入力してください"
+            password_confirmation:
+              blank: "パスワード確認を入力してください"
+  errors:
+    messages:
+      already_confirmed: "このメールアドレスはすでに使用されています"
