@@ -4,8 +4,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in(@user)
+      puts "ユーザー名: #{@user.name}"
+      puts "メールアドレス: #{@user.email}"
+      puts "パスワード: #{params[:user][:password]}"
       redirect_to home_path, notice: 'ユーザー登録が完了しました。'
     else
+      puts "ユーザー登録に失敗しました。"
+      puts @user.errors.full_messages
       filter_errors
       render :new
     end

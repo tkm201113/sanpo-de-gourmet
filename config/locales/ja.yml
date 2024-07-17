@@ -3,6 +3,8 @@ ja:
     errors:
       messages:
         blank: "を入力してください"
+        taken: "この%{attribute}はすでに使用されています"
+        confirmation: "が一致しません"
       models:
         user:
           attributes:
@@ -16,6 +18,11 @@ ja:
               too_short: "パスワードは6文字以上で入力してください"
             password_confirmation:
               blank: "パスワード確認を入力してください"
+              confirmation: "パスワード確認が一致しません"
+  devise:
+    sessions:
+      user:
+        invalid: "メールアドレスまたはパスワードが違います"
   errors:
     messages:
       already_confirmed: "このメールアドレスはすでに使用されています"
