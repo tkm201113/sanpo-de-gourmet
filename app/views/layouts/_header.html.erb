@@ -58,8 +58,8 @@
     <div class="hamburger-menu" id="hamburger-menu">
       <div class="close-icon" onclick="toggleMenu()">×</div>
       <ul>
-        <li><%= link_to 'マイページ', root_path, class: 'menu-link' %></li>
-        <li><%= link_to 'お店を探す', store_details_path, class: 'menu-link' %></li>
+        <li><%= link_to 'マイページ', mypage_path, class: 'menu-link' %></li>
+        <li><%= link_to 'お店を探す', new_search_path, class: 'menu-link' %></li>
         <li><%= link_to 'みんなと話す', community_path, class: 'menu-link' %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'menu-link' %></li>
       </ul>

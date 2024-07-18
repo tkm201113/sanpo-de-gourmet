@@ -2,7 +2,7 @@
 <div class="mypage" data-controller="review-change">
   <div class="user-profile">
     <img src="<%= image_path('kkrn_icon_user_5.png') %>" alt="User Image" class="user-image">
-    <p>ユーザー名: ○○</p>
+    <p><%= @user.name %></p>
   </div>
 
   <div class="review-list">
@@ -35,7 +35,7 @@
     <div class="review-form-content">
       <div class="user-profile">
         <img src="<%= image_path('kkrn_icon_user_5.png') %>" alt="User Image" class="user-image">
-        <p>ユーザー名: ○○</p>
+        <p>ユーザー名: <%= @user.name %></p>
       </div>
       <div class="form-group">
         <label for="rating">評価:</label>
