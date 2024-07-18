@@ -1,0 +1,34 @@
+ja:
+  devise:
+    registrations:
+      user:
+        signed_up: 'アカウント登録が完了しました。'
+        updated: 'アカウント情報を変更しました。'
+        destroyed: 'アカウントを削除しました。お元気で！'
+        signed_up_but_unconfirmed: 'アカウントを作成しましたが、確認メールが届くまでログインできません。'
+    sessions:
+      user:
+        signed_in: 'ログインしました。'
+        signed_out: 'ログアウトしました。'
+        already_signed_out: 'すでにログアウトしています。'
+    failure:
+      already_authenticated: '既にログインしています。'
+      unauthenticated: 'ログインが必要です。'
+      unconfirmed: 'アカウントの確認が必要です。'
+      invalid: 'メールアドレスまたはパスワードが違います。'
+      locked: 'アカウントがロックされています。'
+      timeout: 'セッションがタイムアウトしました。再度ログインしてください。'
+      not_found_in_database: 'メールアドレスまたはパスワードが違います。'
+      last_attempt: 'アカウントがロックされる寸前です。'
+      inactive: 'アカウントが無効です。'
+    mailer:
+      confirmation_instructions:
+        subject: 'アカウント確認手順'
+      reset_password_instructions:
+        subject: 'パスワードリセット手順'
+      unlock_instructions:
+        subject: 'アカウントロック解除手順'
+      email_changed:
+        subject: 'メールアドレスの変更通知'
+      password_change:
+        subject: 'パスワード変更通知'

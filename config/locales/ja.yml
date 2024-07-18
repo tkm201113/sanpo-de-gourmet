@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        blank: "を入力してください"
+        taken: "この%{attribute}はすでに使用されています"
+        confirmation: "が一致しません"
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+              taken: "このメールアドレスはすでに使用されています"
+            password:
+              blank: "パスワードを入力してください"
+              too_short: "パスワードは6文字以上で入力してください"
+            password_confirmation:
+              blank: "パスワード確認を入力してください"
+              confirmation: "パスワード確認が一致しません"
+  devise:
+    sessions:
+      user:
+        invalid: "メールアドレスまたはパスワードが違います"
+  errors:
+    messages:
+      already_confirmed: "このメールアドレスは既に使用されています"

@@ -1,5 +1,5 @@
 <div class="sessions-container">
-  <%= form_with url: search_path, method: :post, local: true do |form| %>
+  <%= form_with url: , method: :post, local: true do |form| %>
     <h2>検索条件</h2>
     <div class="sessions-form">
       <%= form.select :walking_time, [['15分以内', '15'], ['30分以内', '30'], ['1時間以内', '60']], { prompt: 'どれくらい歩く？' }, class: 'form-control' %>
