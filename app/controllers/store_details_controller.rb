@@ -1,14 +1,12 @@
 class StoreDetailsController < ApplicationController
-
   def index
-    @store_name = "○○"
-    @walking_time = "○○分"
-    @business_status = "○○中"
-    @business_hours = "○○:○○ ～ ○○:○○"
-    @waiting_time = "○○分待ち"
-    @phone_number = "○○-○○-○○"
-    @user_name = "○○"
-    @review_text = "○○"
+    @store_name = params[:name]
+    @walking_time = params[:walking_time]
+    @business_status = params[:business_status]
+    @business_hours = params[:business_hours]
+    @waiting_time = params[:waiting_time]
+    @phone_number = params[:phone_number]
+    @address = params[:address]
   end
 
   def review

@@ -3,11 +3,12 @@
   <div class="store-details-section">
     <h2><%= @store_name %></h2>
     <div class="store-details-text">
-      <p>徒歩 : <%= @walking_time %></p>
-      <p>営業状況 : <%= @business_status %></p>
-      <p>営業時間 : <%= @business_hours %></p>
-      <p>混雑状況 : <%= @waiting_time %></p>
-      <p>電話番号 : <%= @phone_number %></p>
+      <p>【住所】<br><%= @address %></p>
+      <p>【徒歩】<br><%= @walking_time %>分</p>
+      <p>【営業状況】<br><%= @business_status %></p>
+      <p>【営業時間】<br><%= @business_hours.html_safe %></p>
+      <p>【混雑状況】<br><%= @waiting_time %></p>
+      <p>【電話番号】<br><%= @phone_number %></p>
     </div>
     <button class="store-details-btn">このお店に行く</button>
 
