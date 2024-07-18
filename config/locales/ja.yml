@@ -25,4 +25,4 @@ ja:
         invalid: "メールアドレスまたはパスワードが違います"
   errors:
     messages:
-      already_confirmed: "このメールアドレスはすでに使用されています"
+      already_confirmed: "このメールアドレスは既に使用されています"

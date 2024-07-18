@@ -12,7 +12,7 @@ ja:
         signed_out: 'ログアウトしました。'
         already_signed_out: 'すでにログアウトしています。'
     failure:
-      already_authenticated: 'すでにログインしています。'
+      already_authenticated: '既にログインしています。'
       unauthenticated: 'ログインが必要です。'
       unconfirmed: 'アカウントの確認が必要です。'
       invalid: 'メールアドレスまたはパスワードが違います。'
