@@ -1,13 +1,16 @@
 body {
   background: #ffcc99;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.container {
+  flex: 6;
+  display: flex;
   justify-content: center;
-  text-align: center;
-  position: relative;
+  align-items: center;
 }
 
 .main-container {
@@ -15,11 +18,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
   padding: 20px;
-  font-size: 25px;
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 50%;
 }
 
@@ -70,9 +71,6 @@ button:hover {
   color: #000;
   padding: 10px 0;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 1000;
 }
 
@@ -160,6 +158,7 @@ button:hover {
   cursor: pointer;
 }
 
+
 .hamburger-menu ul {
   list-style: none;
   padding: 20px;
@@ -184,14 +183,19 @@ button:hover {
 
 .menu-icon {
   cursor: pointer;
+  display: inline-block;
 }
 
 .menu-icon-bar {
   display: block;
   width: 25px;
   height: 3px;
-  margin: 4px 0;
+  margin: 5px auto;
   background-color: #333;
+}
+
+.hamburger-menu.open {
+  display: block;
 }
 
 /* フッダー */
@@ -269,9 +273,7 @@ footer {
 /* ログイン */
 .login-container {
   text-align: center;
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
+  width: 50%;
   padding: 50px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -333,20 +335,21 @@ footer {
 
 /* ホーム */
 .home-container {
-  width: 100%; /* コンテナの幅を設定 */
-  margin-top: 5vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 中央揃え */
+  align-items: center;
 }
 
 #flash-messages {
   width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
 }
 
 #map, #restaurants {
-  width: 60%; /* コンテナ内での幅を100%に設定 */
-  height: 20vh; /* 高さを小さく設定 */
+  width: 60%;
   border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
@@ -359,7 +362,7 @@ footer {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 中央揃え */
+  align-items: center;
 }
 
 .card {
@@ -371,51 +374,51 @@ footer {
   cursor: pointer;
   border-radius: 8px;
   display: flex;
-  align-items: flex-start; /* 上寄せ */
+  align-items: flex-start;
 }
 
 .card h3 {
-  font-size: 1.2em; /* 店舗名のフォントサイズを変更 */
-  text-decoration: underline; /* 下線を追加 */
+  font-size: 1.2em;
+  text-decoration: underline;
   margin-bottom: 10px;
-  margin-right: 10px; /* 画像との間隔を設定 */
-  height: 100%; /* カードの高さいっぱいに設定 */
-  text-align: left; /* 文字を左寄せ */
+  margin-right: 10px;
+  height: 100%;
+  text-align: left;
 }
 
 .card img {
-  flex: 1; /* 画像の幅を自動調整 */
-  max-width: 30%; /* 画像の最大幅を設定 */
-  height: auto; /* 高さを自動調整 */
-  border-radius: 8px; /* 画像の角を丸くする */
+  flex: 1;
+  max-width: 30%;
+  height: auto;
+  border-radius: 8px;
   margin: 15px;
 }
 
 .card-content {
-  flex: 2; /* カード内容の幅を自動調整 */
+  flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* コンテンツを均等に配置 */
+  justify-content: space-between;
 }
 
 .card-content ul {
   list-style-type: none;
   padding: 0;
-  font-size: 0.9em; /* テキストサイズを変更 */
-  text-align: left; /* テキストを左寄せ */
+  font-size: 0.9em;
+  text-align: left;
 }
 
 .card-content ul li {
   margin: 5px 0;
-  position: relative; /* 相対位置に変更 */
-  padding-left: 15px; /* 左側にスペースを追加 */
+  position: relative;
+  padding-left: 15px;
 }
 
 .card-content ul li::before {
-  content: '•'; /* 黒点を追加 */
-  position: absolute; /* 絶対位置 */
-  left: 0; /* 左端に配置 */
-  color: black; /* 黒色に設定 */
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: black;
 }
 
 /* 検索条件 */
@@ -468,9 +471,10 @@ footer {
   display: flex;
   align-items: flex-start;
   width: 900px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   box-sizing: border-box;
+  border-radius: 10px;
   overflow-x: auto;
 }
 
@@ -624,8 +628,14 @@ footer {
 }
 
 /* マイページ */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .mypage {
   width: 60%;
+  margin: 0 auto;
 }
 
 .user-profile {
