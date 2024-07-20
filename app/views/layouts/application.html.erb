@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SanpoDeGourmet</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>SanpoDeGourmet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+</head>
 
-  <body>
-    <%= render 'layouts/header' %>
-    <div id="flash-messages">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-      <% end %>
-    </div>
-    <div class="container">
-      <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
+<body>
+  <%= render 'layouts/header' %>
+  <div id="flash-messages">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
 
-    <div class="overlay" data-review-form-target="overlay" data-action="click->review-form#close"></div>
-  </body>
+  <div class="overlay" data-review-form-target="overlay" data-action="click->review-form#close"></div>
+</body>
 </html>
