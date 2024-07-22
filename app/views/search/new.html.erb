@@ -1,42 +1,48 @@
 <div class="sessions-container">
-  <%= form_with url: new_search_path, method: :post, local: true do |form| %>
+  <%= form_with url: search_index_path, method: :post, local: true, id: 'search-form' do |form| %>
     <h2>検索条件</h2>
     <div class="sessions-form">
-      <%= form.select :walking_time, [['15分以内', '15'], ['30分以内', '30'], ['1時間以内', '60']], { prompt: 'どれくらい歩く？' }, class: 'form-control' %>
+      <label>どれくらい歩く？</label>
+      <%= form.select :walking_time, [['15分以内', '15'], ['30分以内', '30'], ['1時間以内', '60']], { prompt: '選択してください', required: true }, class: 'form-control' %>
     </div>
     
     <div class="sessions-form">
-      <%= form.select :mood, ['和食', '洋食', '中華', 'イタリアン'], { prompt: '今の気分は？' }, class: 'form-control' %>
+      <label>今の気分は？</label>
+      <%= form.select :mood, ['和食', '洋食', '中華', 'イタリアン'], { prompt: '選択してください', required: true }, class: 'form-control' %>
     </div>
 
     <div class="sessions-form">
-      <%= form.select :allergy, [['ある', true], ['ない', false]], { prompt: 'アレルギーは？' }, class: 'form-control', id: 'allergy-select' %>
+      <label>アレルギーは？</label>
+      <%= form.select :allergy, [['ある', true], ['ない', false]], { prompt: '選択してください', required: true }, class: 'form-control', id: 'allergy-select' %>
     </div>
 
     <div class="sessions-form" id="allergy-details" style="display: none;">
-      <%= form.select :allergy_details, ['卵', '牛乳', '小麦', 'そば', '魚', '大豆'], { prompt: 'どんなアレルギー？', multiple: true }, class: 'form-control' %>
+      <label>どんなアレルギー？</label>
+      <%= form.select :allergy_details, ['卵', '牛乳', '小麦', 'そば', '魚', '大豆'], { prompt: '選択してください' }, class: 'form-control' %>
     </div>
 
     <div class="sessions-form">
-      <%= form.select :diet, [['してる', true], ['してない', false]], { prompt: '食事制限は？' }, class: 'form-control', id: 'diet-select' %>
+      <label>食事制限は？</label>
+      <%= form.select :diet, [['してる', true], ['してない', false]], { prompt: '選択してください', required: true }, class: 'form-control', id: 'diet-select' %>
     </div>
 
     <div class="sessions-form" id="diet-details" style="display: none;">
-      <%= form.select :diet_details, ['塩分制限', '糖質制限', 'カロリー制限', '脂質制限', 'カリウム制限', 'たんぱく質制限'], { prompt: '食事制限の内容は？', multiple: true }, class: 'form-control' %>
+      <label>食事制限の内容は？</label>
+      <%= form.select :diet_details, ['塩分制限', '糖質制限', 'カロリー制限', '脂質制限', 'カリウム制限', 'たんぱく質制限'], { prompt: '選択してください' }, class: 'form-control' %>
     </div>
 
     <div class="sessions-btn">
       <%= form.submit '検索', class: 'btn sessions-btn-primary' %>
     </div>
   <% end %>
-
-  <script>
-    document.getElementById('allergy-select').addEventListener('change', function() {
-      document.getElementById('allergy-details').style.display = this.value === 'true' ? 'block' : 'none';
-    });
-
-    document.getElementById('diet-select').addEventListener('change', function() {
-      document.getElementById('diet-details').style.display = this.value === 'true' ? 'block' : 'none';
-    });
-  </script>
 </div>
+
+<script>
+  document.getElementById('allergy-select').addEventListener('change', function() {
+    document.getElementById('allergy-details').style.display = this.value === 'true' ? 'block' : 'none';
+  });
+
+  document.getElementById('diet-select').addEventListener('change', function() {
+    document.getElementById('diet-details').style.display = this.value === 'true' ? 'block' : 'none';
+  });
+</script>
