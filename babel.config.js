@@ -8,7 +8,7 @@ module.exports = function(api) {
       },
       useBuiltIns: "entry",
       corejs: 3,
-      modules: false,  // この行を確認
+      modules: false,
       exclude: ['transform-typeof-symbol']
     }],
     "@babel/preset-react"

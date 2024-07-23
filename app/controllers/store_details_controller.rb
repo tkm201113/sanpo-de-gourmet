@@ -7,8 +7,21 @@ class StoreDetailsController < ApplicationController
     @waiting_time = params[:waiting_time]
     @phone_number = params[:phone_number]
     @address = params[:address]
+    @reviews = Review.where(store_name: @store_name) # すべてのレビューを取得
   end
 
   def review
+    @review = Review.new(review_params)
+    if @review.save
+      render json: @review, status: :created
+    else
+      render json: @review.errors, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:name, :rating, :review, :service, :price, :atmosphere, :store_name)
   end
 end
