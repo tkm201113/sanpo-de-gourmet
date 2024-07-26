@@ -7,7 +7,7 @@ class StoreDetailsController < ApplicationController
     @waiting_time = params[:waiting_time]
     @phone_number = params[:phone_number]
     @address = params[:address]
-    @reviews = Review.where(store_name: @store_name) # すべてのレビューを取得
+    @reviews = Review.where(store_name: @store_name)
   end
 
   def review
@@ -15,7 +15,7 @@ class StoreDetailsController < ApplicationController
     if @review.save
       render json: @review, status: :created
     else
-      render json: @review.errors, status: :unprocessable_entity
+      render json: @review.errors.full_messages, status: :unprocessable_entity
     end
   end
 

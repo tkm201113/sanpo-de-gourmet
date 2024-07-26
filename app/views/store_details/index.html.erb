@@ -16,7 +16,7 @@
 
     <div class="store-details-second-section">
       <h3>レビュー</h3>
-      <div id="reviews">
+      <div id="reviews" data-review-form-target="reviews">
         <%= render partial: "store_details/review", collection: @reviews %>
       </div>
       <button class="store-details-btn" data-action="click->review-form#open">レビューを書く</button>
@@ -27,7 +27,7 @@
 
   <div id="review-form" class="review-form" data-review-form-target="form">
     <div class="review-form-content">
-      <%= form_with url: review_store_details_path, method: :post, remote: true, authenticity_token: true, data: { controller: 'review-form' } do |f| %>
+      <%= form_with model: Review.new, url: review_store_details_path, method: :post, remote: true, authenticity_token: true do |f| %>
         <div class="form-group">
           <%= f.label :name, '名前:' %>
           <%= f.text_field :name, id: 'name' %>
@@ -39,7 +39,7 @@
               <span class="star" data-value="<%= i %>">&#9733;</span>
             <% end %>
           </div>
-          <%= f.hidden_field :rating, id: 'rating' %>
+          <%= f.hidden_field :rating, id: 'rating', data: { review_form_target: 'rating' } %>
         </div>
         <div class="form-group">
           <%= f.label :review, 'レビュー:' %>
@@ -61,8 +61,8 @@
           <%= f.hidden_field :store_name, value: @store_name %>
         </div>
         <div class="form-group">
-          <button data-action="click->review-form#close">閉じる</button>
-          <%= f.submit '投稿する' %>
+          <button type="button" data-action="click->review-form#close">閉じる</button>
+          <%= f.submit '投稿する' %> <!-- ここに submit ボタンが存在することを確認します -->
         </div>
       <% end %>
     </div>
