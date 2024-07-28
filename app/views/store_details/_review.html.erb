@@ -1,0 +1,15 @@
+<div class="review-item">
+  <img src="<%= image_path('kkrn_icon_user_5.png') %>" alt="Review Image" class="review-image">
+  <div class="review-content">
+    <p><%= review.store_name %></p>
+    <p><%= '★' * review.rating %></p>
+    <p class="review-text"><%= review.review %></p>
+  </div>
+  <div class="review-summary-actions">
+    <div class="review-summary">
+      <p>サービス : <%= review.service %></p>
+      <p>価格 : <%= review.price %></p>
+      <p>雰囲気 : <%= review.atmosphere %></p>
+    </div>
+  </div>
+</div>

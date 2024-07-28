@@ -3,7 +3,7 @@
 <head>
   <title>Nearby Restaurants</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places,geometry&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ERB::Util.url_encode(ENV['GOOGLE_MAPS_API_KEY']) %>&libraries=places,geometry&callback=initMap"></script>
 <script>
   function initMap() {
     var searchParams = <%= @search_params.to_json.html_safe %>;
@@ -87,7 +87,8 @@
 <body>
   <div class="home-container">
     <div id="flash-messages"></div>
-    <div id="map"></div>
+    <!-- マップコンテナを追加 -->
+    <div id="map" style="height: 400px; width: 60%;"></div>
     <div id="restaurants"></div>
   </div>
 </body>

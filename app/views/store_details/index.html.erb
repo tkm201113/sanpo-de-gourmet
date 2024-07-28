@@ -15,8 +15,11 @@
     <div class="divider"></div>
 
     <div class="store-details-second-section">
-      <p>ユーザー名: <%= @user_name %></p>
-      <p class="review-text">テキスト: <%= @review_text %></p>
+      <h3>レビュー</h3>
+      <hr class="underline">
+      <div id="reviews" data-review-form-target="reviews">
+        <%= render partial: "store_details/review", collection: @reviews %>
+      </div>
       <button class="store-details-btn" data-action="click->review-form#open">レビューを書く</button>
     </div>
   </div>
@@ -25,60 +28,45 @@
 
   <div id="review-form" class="review-form" data-review-form-target="form">
     <div class="review-form-content">
-      <div class="form-group">
-        <label for="name">名前:</label>
-        <input type="text" id="name">
-      </div>
-      <div class="form-group">
-        <label for="rating">評価:</label>
-        <div class="stars">
-          <% (1..5).each do |i| %>
-            <span class="star" data-value="<%= i %>">&#9733;</span>
-          <% end %>
+      <%= form_with(model: @review, url: review_store_details_path, local: true) do |f| %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="form-group">
+          <%= f.label :name, '名前:' %>
+          <%= f.text_field :name, id: 'name' %>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="review">レビュー:</label>
-        <textarea id="review"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="service">サービス:</label>
-        <select id="service">
-          <option>5. とても良い</option>
-          <option>4. 良い</option>
-          <option>3. 普通</option>
-          <option>2. あまり良くない</option>
-          <option>1. 良くない</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="price">価格:</label>
-        <select id="price">
-          <option>5. とても良い</option>
-          <option>4. 良い</option>
-          <option>3. 普通</option>
-          <option>2. あまり良くない</option>
-          <option>1. 良くない</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="atmosphere">雰囲気:</label>
-        <select id="atmosphere">
-          <option>5. とても良い</option>
-          <option>4. 良い</option>
-          <option>3. 普通</option>
-          <option>2. あまり良くない</option>
-          <option>1. 良くない</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="image">画像:</label>
-        <input type="file" id="image">
-      </div>
-      <div class="form-group">
-        <button data-action="click->review-form#close">閉じる</button>
-        <button>投稿する</button>
-      </div>
+        <div class="form-group">
+          <%= f.label :rating, '評価:' %>
+          <div class="stars">
+            <% (1..5).each do |i| %>
+              <span class="star" data-value="<%= i %>">&#9733;</span>
+            <% end %>
+          </div>
+          <%= f.hidden_field :rating, id: 'rating', data: { review_form_target: 'rating' } %>
+        </div>
+        <div class="form-group">
+          <%= f.label :review, 'レビュー:' %>
+          <%= f.text_area :review, id: 'review' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :service, 'サービス:' %>
+          <%= f.select :service, options_for_select([['5. とても良い', 5], ['4. 良い', 4], ['3. 普通', 3], ['2. あまり良くない', 2], ['1. 良くない', 1]]), {}, id: 'service' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price, '価格:' %>
+          <%= f.select :price, options_for_select([['5. とても良い', 5], ['4. 良い', 4], ['3. 普通', 3], ['2. あまり良くない', 2], ['1. 良くない', 1]]), {}, id: 'price' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :atmosphere, '雰囲気:' %>
+          <%= f.select :atmosphere, options_for_select([['5. とても良い', 5], ['4. 良い', 4], ['3. 普通', 3], ['2. あまり良くない', 2], ['1. 良くない', 1]]), {}, id: 'atmosphere' %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :store_name, value: @store_name %>
+        </div>
+        <div class="form-group">
+          <button type="button" data-action="click->review-form#close">閉じる</button>
+          <%= f.submit '投稿する' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

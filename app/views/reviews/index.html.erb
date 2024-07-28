@@ -1,0 +1,12 @@
+<h1>レビュー一覧</h1>
+
+<%= link_to '新しいレビューを投稿', new_review_path %>
+
+<ul>
+  <% Review.all.each do |review| %>
+    <li>
+      <strong><%= review.title %></strong> (評価: <%= review.rating %>)
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</ul>
