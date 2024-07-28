@@ -77,8 +77,8 @@ export default class extends Controller {
       }
       return response.json();
     })
-    .then(data => {
-      this.afterReviewSubmission({ detail: { success: true, data: data } });
+    .then(review => {
+      this.afterReviewSubmission({ detail: { success: true, data: review } });
     })
     .catch((error) => {
       this.afterReviewSubmission({ detail: { success: false, errors: error.message } });
@@ -89,13 +89,17 @@ export default class extends Controller {
     if (event.detail.success) {
       const review = event.detail.data;
       const reviewHtml = `
-        <div class="review">
-          <p>ユーザー名: ${review.name}</p>
-          <p class="review-text">テキスト: ${review.review}</p>
-          <p>評価: ${review.rating}</p>
-          <p>サービス: ${review.service}</p>
-          <p>価格: ${review.price}</p>
-          <p>雰囲気: ${review.atmosphere}</p>
+        <div class="review-item">
+          <img src="${this.imagePath('kkrn_icon_user_5.png')}" alt="Review Image" class="review-image">
+          <div class="review-content">
+            <p>${'★'.repeat(review.rating)}</p>
+            <p class="review-text">${review.review}</p>
+          </div>
+          <div class="review-summary">
+            <p>サービス : ${review.service}</p>
+            <p>価格 : ${review.price}</p>
+            <p>雰囲気 : ${review.atmosphere}</p>
+          </div>
         </div>
       `;
       this.reviewsTarget.insertAdjacentHTML('beforeend', reviewHtml);
@@ -106,7 +110,11 @@ export default class extends Controller {
 
     const submitButton = this.formTarget.querySelector('input[type="submit"], button[type="submit"]');
     if (submitButton) {
-      submitButton.disabled = false; // 送信ボタンを有効に戻す
+      submitButton.disabled = false;
     }
+  }
+
+  imagePath(filename) {
+    return `/assets/${filename}`;
   }
 }

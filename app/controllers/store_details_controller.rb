@@ -12,10 +12,11 @@ class StoreDetailsController < ApplicationController
 
   def review
     @review = Review.new(review_params)
+    @review.user = current_user
     if @review.save
-      render partial: 'store_details/review', locals: { review: @review }
+      render json: @review, status: :created
     else
-      render json: @review.errors.full_messages, status: :unprocessable_entity
+      render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

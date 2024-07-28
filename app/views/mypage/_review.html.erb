@@ -11,5 +11,9 @@
       <p>価格 : <%= review.price %></p>
       <p>雰囲気 : <%= review.atmosphere %></p>
     </div>
+    <div class="review-actions">
+      <button data-action="click->review-change#open">編集</button>
+      <button class="delete-button" data-action="click->review-change#confirmDelete">削除</button>
+    </div>
   </div>
 </div>

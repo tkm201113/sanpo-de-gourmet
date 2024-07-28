@@ -684,11 +684,12 @@ h2 {
   border-top: 1px solid black;
   width: 100%;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .review-list {
   border: 1px solid black;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   background-attachment: #FFCC99;
 }
@@ -698,6 +699,8 @@ h2 {
   align-items: flex-start;
   text-align: left;
   margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .review-image {
@@ -708,15 +711,25 @@ h2 {
 .review-content {
   margin-left: 10px;
   text-align: left;
+  flex: 1;
+}
+
+.review-summary-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .review-summary {
   text-align: right;
-  margin-left: auto;
+  width: 100%;
 }
 
 .review-actions {
   text-align: right;
+  margin-top: 10px;
 }
 
 .review-actions button {
@@ -729,6 +742,7 @@ h2 {
   background-color: red;
   color: white;
 }
+
 
 /* レビュー削除 */
 .review-form-content p {
